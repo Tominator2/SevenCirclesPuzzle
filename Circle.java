@@ -1,8 +1,16 @@
 import java.awt.Color;
 
-// This class implemets a single puzzle circle with 6 colours
-// corresponding to the clock positions 12, 2, 4, 6, 8, & 10, which 
-// are numbered starting at 12 o'clock  as 0..5 respectively.
+/* This class implements a single puzzle circle with 6 colours
+   corresponding to the clock positions 12, 1:30, 4:30, 6, 7:30, & 10:30, 
+   which are numbered starting at 12 o'clock  as 0..5 respectively:
+     _______
+    /   0   \     
+   /5       1\
+  (     N     )
+   \4       2/
+    \___3___/  
+
+*/
 
 public class Circle {
 
@@ -21,7 +29,7 @@ public class Circle {
     }
 
 
-    // adjust the offset to rotate this colour to the desired position
+    // Adjust the offset to rotate this colour to the desired position
     public void rotateColourTo(Color color, int newPosition){
 
 	if (newPosition < 0 || newPosition > 5){
@@ -48,18 +56,19 @@ public class Circle {
     }
 
 
+    // Returns the circle to its original rotation
     public void resetOffset(){
 	offset = 0;
     }
 
 
-    // return the dot colour of this position
+    // Return the dot colour of this position
     public Color getColourAt(int position){
 	return getDot(position);
     }
 
 
-    // returns the colour of the dot in this position allowing for
+    // Returns the colour of the dot in this position allowing for
     // rotation
     public Color getDot(int position) {
 
@@ -75,7 +84,7 @@ public class Circle {
     }
 
 
-    // return the dot colour diagonally opposite this position
+    // Return the dot colour diagonally opposite this position
     public Color getColourOpp(int position){
 	return getDot((position + 3)%6);
     }
