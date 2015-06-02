@@ -1,0 +1,24 @@
+*** SOLUTION FOUND! ***
+           _____ 
+          /  G  \
+         /W     Y\
+   _____/    0    \_____
+  /  B  \         /  Y  \
+ /W     K\K     B/B     G\
+/    5    \__R__/    1    \
+\         /  R  \         /
+ \R     Y/Y     W\W     K/
+  \__G__/    6    \__R__/
+  /  G  \         /  R  \
+ /K     B\B     G/G     K\ 
+/    4    \__K__/    2    \
+\         /  K  \         /
+ \W     Y/Y     B\B     Y/
+  \__R__/    3    \__W__/
+        \         /
+         \G     W/
+          \__R__/
+
+
+KEY: 'R' = Red, 'G' = Green, 'B' = Blue, 'Y' = Yellow, 
+     'K' = Black, and 'W' = White.
