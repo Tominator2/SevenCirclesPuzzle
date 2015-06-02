@@ -75,8 +75,9 @@ public class Puzzle {
     }
 
 
+    // Solve the puzzle. Start by trying each circle in the center position
     public void solve(){
-	// add first circle to the center
+	// add first circle to the center position (6)
 	for (int i = 0; i < circles.length; i = i + 1) {
 
 	    // clear layout
@@ -111,10 +112,12 @@ public class Puzzle {
     }
     
 
-    // If we are able to add a circle to the final position (6) then
-    // this is a solution!
+    // Add a circle at this position (if there is a suitable circle) and then recursively 
+    // try the next circle position. 
     public void tryPosition(int position, Vector availableCircles) {
 
+	// If we are trying to add a circle to position 6 then the others have all been 
+	// filled so this is the solution!
 	if (position == 6) {
 	    debug("\n*** SOLUTION FOUND! ***");
 	    printLayout();
@@ -181,6 +184,7 @@ public class Puzzle {
     }
 
 
+    // Remove any circles that don't match these colours
     public void returnMatches(Vector circles, Color c1, Color c2, Color c3) {
 
 	// each circle contains 6 unique colours - if we have any patterns with
@@ -221,7 +225,7 @@ public class Puzzle {
     }
     
     
-    // helper method for printing HTML colour tags
+    // Helper method for printing HTML colour tags
     public String dot(int layoutPosition, int colourPosition) {
 	Color dotColour= layout[layoutPosition].getColourAt(colourPosition);
 
@@ -235,14 +239,18 @@ public class Puzzle {
     }
 
 
+    // Print the solution as text or HTML
     public void printLayout(){
-	if (htmlOutput) {
+    	
+    	// Add HTML header
+	if (htmlOutput) {  
 	System.out.println("<html>");
 	System.out.println("<body bgcolor=\"aaaaaa\">");
 	System.out.println("<h2>Solution for the Seven Circles Puzzle</h2>");
 	System.out.println("<pre>");
 	System.out.println("<code>");
 	}
+	
 	System.out.println("           _____ ");            
 	System.out.println("          /  " + dot(0,0) + "  \\"); 
 	System.out.println("         /" + dot(0,5) + "     " + dot(0,1) + "\\"); 
@@ -263,6 +271,7 @@ public class Puzzle {
 	System.out.println("         \\" + dot(3,4) + "     " + dot(3,2) + "/"); 
 	System.out.println("          \\__" + dot(3,3) + "__/"); 
 
+ 	// Add HTML footer
 	if (htmlOutput) {
 	    System.out.println("</code>");
 	    System.out.println("</pre>");	
@@ -270,12 +279,13 @@ public class Puzzle {
 	    System.out.println("</html>");
 	}
 	else {
-	    System.out.println("\nKEY: 'R' = Red, 'G' = Green, 'B' = Blue, 'Y' = Yellow, ");
-	    System.out.println("     'K' = Black, and 'W' = White.\n");
+	    System.out.println("\nKEY: 'R' = Red, 'G' = Green, 'B' = Blue,");
+	    System.out.println("     'Y' = Yellow, 'K' = Black, and 'W' = White.\n");
 	}
     }
 
 
+    // Print individual circles with position information
     public void printCircles() {
 
 	System.out.println("\nPosition 6 (center) =");
@@ -307,7 +317,6 @@ public class Puzzle {
 
 	puzzle.solve();
 	puzzle.debug("\n" + puzzle.tries + " tries!");
-
 
     }
 
